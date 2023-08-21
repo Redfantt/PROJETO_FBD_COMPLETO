@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciamento de Hospedagem</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/46/b8/24/46b824184bb7a8b60a9dca56ca264752.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Restante do seu código CSS permanece igual */
+
+        /* Estilo para o botão Listar Hospedagens */
+        .listar-hospedagens-button {
+            width: 200px;
+            padding: 10px;
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .listar-hospedagens-button:hover {
+            background-color: #cc0000;
+        }
+
+        /* Estilo para o botão Voltar */
+        .voltar-button {
+            margin-top: 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Estilo para a mensagem de erro */
+        .mensagem {
+            color: #FF0000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerenciamento de Hospedagem</h1>
+    <div class="form-container">
+
+        <form action="/hospedagem" method="POST">
+            <h3>Hospedagem</h3>
+            <input type="text" name="cpf" placeholder="CPF do Cliente" required>
+            <input type="number" name="num_quarto" placeholder="Número do Quarto" required>
+            <input type="number" name="num_dias" placeholder="Número de Dias" required>
+            <button type="submit">Cadastrar</button>
+            {% if mensagem %}
+                <p class="mensagem">{{ mensagem }}</p>
+            {% endif %}
+        </form>
+
+
+        <form action="/quitar_hospedagem" method="POST">
+            <h3>Quitar Hospedagem</h3>
+            <input type="text" name="cpf" placeholder="CPF do Cliente" required>
+            <input type="number" name="num_quarto" placeholder="Número do Quarto" required>
+            <button type="submit">Quitar</button>
+            {% if mensagem_quitar %}
+                <p class="mensagem">{{ mensagem_quitar }}</p>
+            {% endif %}
+        </form>
+
+
+        <form action="/cancelar_hospedagem" method="POST">
+            <h3>Cancelar Hospedagem</h3>
+            <input type="text" name="cpf" placeholder="CPF do Cliente" required>
+            <button type="submit">Cancelar</button>
+            {% if mensagem_cancelar %}
+                <p class="mensagem">{{ mensagem_cancelar }}</p>
+            {% endif %}
+        </form>
+    </div>
+
+
+    <a class="listar-hospedagens-button" href="/listar_hospedagens">Listar Hospedagens</a>
+
+
+    <a class="voltar-button" href="/opcoes">Voltar</a>
+</body>
+</html>

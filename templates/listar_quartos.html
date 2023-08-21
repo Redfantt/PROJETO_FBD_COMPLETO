@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Quartos</title>
+    <style>
+        body {
+            background-image: url('https://i.ibb.co/fGkjvKw/fundo-azul-do-gradiente-de-luxo-abstrato-liso-azul-escuro-com-vinheta-preta-studio-banner.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #fff;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #FFD700; /* Amarelo */
+            color: #FF0000; /* Vermelho */
+        }
+
+        .voltar-button {
+            margin-top: 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Quartos</h1>
+    <table>
+        <tr>
+            <th class="info-value">Número</th>
+            <th class="info-value">Número de Camas</th>
+            <th class="info-value">Número de Banheiros</th>
+            <th class="info-value">Status</th>
+            <th class="info-value">Valor da Diária</th>
+        </tr>
+        {% for quarto in quartos %}
+        <tr>
+            <td>{{ quarto[0] }}</td>
+            <td>{{ quarto[1] }}</td>
+            <td>{{ quarto[2] }}</td>
+            <td>{{ quarto[3] }}</td>
+            <td>R$ {{ quarto[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <a class="voltar-button" href="/quarto">Voltar</a>
+</body>
+</html>

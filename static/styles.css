@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("https://oceanicaalimentos.com.br/wp-content/uploads/2020/01/FUNDO-300x200.png");
+    background-size: cover;
+
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.container .login-form {
+    margin: auto;
+    padding: 20px;
+    width: 300px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container .login-form h2 {
+    margin-bottom: 20px;
+}
+
+.container .login-form input[type="text"],
+.container .login-form input[type="password"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container .login-form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container .login-form .error {
+    color: red;
+    margin-bottom: 10px;
+}
+

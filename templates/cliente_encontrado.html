@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buscar Cliente</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/46/b8/24/46b824184bb7a8b60a9dca56ca264752.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 30px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dados do Cliente</title>
+</head>
+<body>
+    <h1>Dados do Cliente</h1>
+    <p>Nome: {{ cliente[1] }}</p>
+    <p>CPF: {{ cliente[2] }}</p>
+    <p>Telefone: {{ cliente[3] }}</p>
+    <a href="/cliente">Voltar</a>
+</body>
+</html>

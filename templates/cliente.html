@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciamento de Clientes</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/46/b8/24/46b824184bb7a8b60a9dca56ca264752.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        h1, .form-container {
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+        }
+        .form-container input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .form-container button {
+            width: 120px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .title-cadastrar {
+            color: #F44336;
+        }
+        .title-editar {
+            color: #FF0000;
+        }
+        .title-remover {
+            color: #3F51B5;
+        }
+        .title-buscar {
+            color: #9C27B0;
+        }
+        .search-button {
+            align-self: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        /* Adicione a regra de estilo para a classe .mensagem */
+        .mensagem {
+            color: black;
+        }
+        /* Estilo para o botão Voltar */
+        .voltar-button {
+            margin-top: 30px;
+        }
+    </style>
+</head><body>
+    <h1>Gerenciamento de Clientes</h1>
+    <div class="form-container">
+        <form action="/cadastrar_cliente" method="POST">
+            <h3 class="title-cadastrar">Cadastrar Cliente</h3>
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <input type="text" name="telefone" placeholder="Telefone" required>
+            <button type="submit">Cadastrar</button>
+            {% if mensagem_cadastro %}
+
+                <p class="mensagem">{{ mensagem_cadastro }}</p>
+            {% endif %}
+        </form>
+        <form action="/editar_cliente" method="POST">
+            <h3 class="title-editar">Editar Cliente</h3>
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <input type="text" name="novo_nome" placeholder="Novo nome" required>
+            <input type="text" name="novo_cpf" placeholder="Novo CPF" required>
+            <input type="text" name="novo_telefone" placeholder="Novo telefone" required>
+            <button type="submit">Editar</button>
+            {% if mensagem_editar %}
+                <p class="mensagem">{{ mensagem_editar }}</p>
+            {% endif %}
+        </form>
+    </div>
+    <div class="form-container">
+        <form action="/remover_cliente" method="POST">
+            <h3 class="title-remover">Remover Cliente</h3>
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <button type="submit">Remover</button>
+            {% if mensagem_remover %}
+
+                <p class="mensagem">{{ mensagem_remover }}</p>
+            {% endif %}
+        </form>
+        <form action="/buscar_cliente" method="GET">
+            <h3 class="title-buscar">Buscar Cliente</h3>
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <button class="search-button" type="submit">Buscar</button>
+            {% if mensagem_buscar %}
+
+                <p class="mensagem">{{ mensagem_buscar }}</p>
+            {% endif %}
+        </form>
+    </div>
+
+     <a class="voltar-button" href="/opcoes">Voltar</a>
+</body>
+</html>
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciamento de Quartos</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/46/b8/24/46b824184bb7a8b60a9dca56ca264752.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        /* Estilo para o botão Voltar */
+        .voltar-button {
+            margin-top: 30px;
+            color: red;
+        }
+
+        /* Estilos para os formulários */
+        h1, .form-container {
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+        }
+
+        .form-container input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            width: 120px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos para o formulário de ocupar/quitar quarto */
+        .title-ocupar {
+            color: red;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerenciamento de Quartos</h1>
+    <div class="form-container">
+
+        <form action="/cadastrar_quarto" method="POST">
+            <h3 class="title-ocupar">Cadastrar Quarto</h3>
+            <input type="number" name="num_quarto" placeholder="Número do Quarto" required min="1">
+            <input type="number" name="num_camas" placeholder="Número de Camas" required>
+            <input type="number" name="num_banheiros" placeholder="Número de Banheiros" required>
+
+            <div class="checkbox-container">
+                <input type="checkbox" name="status" value="ocupado">
+                <label class="vermelho">Ocupado</label>
+                <input type="checkbox" name="status" value="livre">
+                <label class="vermelho">Livre</label>
+            </div>
+            <input type="number" name="diaria" placeholder="Diária" required>
+            <button type="submit">Cadastrar</button>
+            {% if mensagem_cadastro %}
+
+                <p class="mensagem">{{ mensagem_cadastro }}</p>
+            {% endif %}
+        </form>
+
+
+        <form action="/ocupar_quarto" method="POST">
+            <h3 class="title-ocupar">Ocupar Quarto</h3>
+            <div class="checkbox-container">
+                <input type="number" name="num_quarto" placeholder="Número do Quarto" required>
+                <input type="checkbox" name="status" value="ocupado">
+                <label class="vermelho">Ocupado</label>
+                <input type="checkbox" name="status" value="livre">
+                <label class="vermelho">Livre</label>
+            </div>
+            <button type="submit">Aplicar</button>
+            {% if mensagem_ocupar %}
+                <p>{{ mensagem_ocupar }}</p>
+            {% endif %}
+        </form>
+
+
+        <form action="/listar_quartos" method="GET">
+            <button type="submit">Listar Quartos</button>
+        </form>
+    </div>
+
+    <a class="voltar-button" href="/opcoes">Voltar</a>
+</body>
+</html>

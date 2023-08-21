@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="header">
+        <ul class="nav-links">
+            <li><a href="#">Bem vindo</a></li>
+            <li><a href="/opcoes">Opções</a></li>
+            <li><a href="#">Quartos</a></li>
+            <li><a href="#">Hospedagem</a></li>
+            <li><a href="#">Desconectar</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

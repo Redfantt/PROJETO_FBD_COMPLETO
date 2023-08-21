@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Hospedagens</title>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/fotos-gratis/fundo-azul-do-gradiente-de-luxo-abstrato-liso-azul-escuro-com-vinheta-preta-studio-banner_1258-52379.jpg?w=1480&t=st=1690063374~exp=1690063974~hmac=3915a796e91055ea57272085e9465479451bfd980437f6ee472d4f2551bce6e5');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #fff;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #FFD700; /* Amarelo */
+            color: #FF0000; /* Vermelho */
+        }
+
+        .voltar-button {
+            margin-top: 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Hospedagens</h1>
+    <table>
+        <tr>
+            <th class="info-value">Nome do Cliente</th>
+            <th class="info-value">CPF do Cliente</th>
+            <th class="info-value">Número do Quarto</th>
+            <th class="info-value">Número de Dias</th>
+            <th class="info-value">Valor da Diária</th>
+        </tr>
+        {% for hospedagem in hospedagens %}
+        <tr>
+            <td>{{ hospedagem[0] }}</td>
+            <td>{{ hospedagem[1] }}</td>
+            <td>{{ hospedagem[2] }}</td>
+            <td>{{ hospedagem[3] }}</td>
+            <td>R$ {{ hospedagem[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <a class="voltar-button" href="/hospedagem">Voltar</a>
+</body>
+</html>

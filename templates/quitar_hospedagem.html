@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quitar Hospedagem</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/46/b8/24/46b824184bb7a8b60a9dca56ca264752.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FFD700; /* Amarelo */
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: #FFFFFF; /* Branco */
+        }
+
+        /* Estilo para o botão Voltar */
+        .voltar-button {
+            margin-top: 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Estilo para a mensagem de sucesso */
+        .mensagem-sucesso {
+            color: #00FF00; /* Verde */
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Estilo para a mensagem de erro */
+        .mensagem-erro {
+            color: #FF0000; /* Vermelho */
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Estilo para os campos de informação antes dos dois pontos */
+        .info-label-before {
+            color: #FFD700; /* Amarelo */
+            font-weight: bold;
+        }
+
+        /* Estilo para os valores das informações após os dois pontos */
+        .info-value-after {
+            color: #FF0000; /* Vermelho */
+        }
+    </style>
+</head>
+<body>
+    <h1>Quitar Hospedagem</h1>
+    <div class="form-container">
+        {% if cliente_info %}
+
+        <h3><span class="info-label-before">A hospedagem de:</span> <span class="info-value-after">{{ cliente_info.nome }}</span></h3>
+        <p><span class="info-label-before">CPF:</span> <span class="info-value-after">{{ cliente_info.cpf }}</span></p>
+        <p><span class="info-label-before">No quarto de número:</span> <span class="info-value-after">{{ cliente_info.num_quarto }}</span></p>
+        <p><span class="info-label-before">Hospedado por:</span> <span class="info-value-after">{{ cliente_info.num_dias }} dias</span></p>
+        <p><span class="info-label-before">Valor da diária:</span> <span class="info-value-after">R$ {{ cliente_info.valor_diaria }}</span></p>
+        <p><span class="info-label-before">Valor total a pagar:</span> <span class="info-value-after">R$ {{ cliente_info.valor_total }}</span></p>
+        <p class="mensagem-sucesso">Hospedagem quitada com sucesso!</p>
+        {% else %}
+
+        <h3 class="mensagem-erro">{{ mensagem_quitar }}</h3>
+        {% endif %}
+    </div>
+
+    <a class="voltar-button" href="/hospedagem">Voltar</a>
+</body>
+</html>

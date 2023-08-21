@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Clientes Hospedados</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/46/b8/24/46b824184bb7a8b60a9dca56ca264752.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 30px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Clientes Hospedados</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Número do Quarto</th>
+            <th>Número de Dias</th>
+            <th>Valor da Diária</th>
+        </tr>
+        {% for hospedagem in hospedagens %}
+        <tr>
+            <td>{{ hospedagem[0] }}</td>
+            <td>{{ hospedagem[1] }}</td>
+            <td>{{ hospedagem[2] }}</td>
+            <td>{{ hospedagem[3] }}</td>
+            <td>{{ hospedagem[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/opcoes">Voltar</a>
+</body>
+</html>
